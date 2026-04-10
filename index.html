@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alberto Candelario Torres | Reclutador Senior & Headhunter · Legal Talent</title>
+  <meta name="description" content="Alberto Candelario Torres — Reclutador Senior y Headhunter especializado en conectar talento legal con empresas de alto valor en Colombia y Latinoamérica." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream:        #f7f3ee;
+      --cream-deep:   #ede8e0;
+      --navy:         #0d1f3c;
+      --navy-mid:     #162e54;
+      --navy-light:   #1e3d6e;
+      --gold:         #b8832a;
+      --gold-light:   #d4a04a;
+      --gold-pale:    #f0d9b0;
+      --text-main:    #0d1f3c;
+      --text-soft:    #3d5275;
+      --text-muted:   #7a90ae;
+      --white:        #ffffff;
+      --card-bg:      #ffffff;
+      --left-bg:      #0d1f3c;   /* navy panel on desktop */
+      --radius:       28px;
+      --btn-radius:   50px;
+      --transition:   .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-main);
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    .bg {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+    }
+    .bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 0% 0%,   rgba(184,131,42,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 70% at 100% 100%, rgba(13,31,60,.07)  0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 50% 50%,  rgba(247,243,238,1)  0%, rgba(237,232,224,1) 100%);
+    }
+    
+    .bg-grain {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='%23b8832a' opacity='.035'/%3E%3C/svg%3E");
+      background-size: 4px 4px;
+    }
+    .bg-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: blobFloat 10s ease-in-out infinite;
+    }
+    .bg-blob:nth-child(2){ width:360px;height:360px;background:rgba(184,131,42,.09);top:-80px;right:-80px;animation-delay:0s; }
+    .bg-blob:nth-child(3){ width:260px;height:260px;background:rgba(13,31,60,.07);bottom:0;left:-60px;animation-delay:-4s; }
+
+    @keyframes blobFloat {
+      0%,100%{ transform:translateY(0) scale(1); }
+      50%    { transform:translateY(-20px) scale(1.03); }
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      position: relative; z-index: 1;
+      width: 100%;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 430px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid rgba(184,131,42,.18);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.9) inset,
+        0 4px 6px rgba(13,31,60,.04),
+        0 20px 60px rgba(13,31,60,.12),
+        0 40px 100px rgba(13,31,60,.08);
+      overflow: hidden;
+      animation: cardIn .7s cubic-bezier(.22,.68,0,1.2) both;
+    }
+
+    @keyframes cardIn {
+      from { opacity:0; transform: translateY(28px) scale(.97); }
+      to   { opacity:1; transform: translateY(0) scale(1); }
+    }
+
+    .card-left {
+      background: var(--left-bg);
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-left::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 140%; height: 70px;
+      background: var(--card-bg);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .card-left::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 80% 0%, rgba(184,131,42,.14) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 10% 100%, rgba(30,61,110,.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .brand {
+      align-self: flex-end;
+      position: relative; z-index: 2;
+      margin-bottom: 20px;
+      animation: fadeUp .5s .1s both;
+    }
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,255,255,.96);
+      border-radius: 20px;
+      padding: 7px 14px;
+      border: 1px solid rgba(255,255,255,.4);
+      box-shadow: 0 2px 12px rgba(0,0,0,.18);
+    }
+    .img-logo {
+      height: 35px;
+      width: auto;
+      display: block;
+    }
+
+    .avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative; z-index: 2;
+      margin-bottom: 20px;
+      animation: fadeUp .5s .2s both;
+    }
+    .avatar-ring {
+      position: relative;
+      width: 128px; height: 128px;
+    }
+
+    .avatar-ring::before {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--gold-light) 0deg 110deg,
+        transparent 110deg 180deg,
+        var(--gold) 180deg 290deg,
+        transparent 290deg 360deg
+      );
+      animation: spin 7s linear infinite;
+      z-index: 0;
+    }
+    @keyframes spin { to{ transform:rotate(360deg); } }
+    .avatar-ring::after {
+      content: '';
+      position: absolute; inset: 0px;
+      border-radius: 50%;
+      background: var(--left-bg);
+      z-index: 1;
+    }
+    .avatar-img {
+      position: relative; z-index: 2;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    /* Bandera de Colombia en svg */
+    .avatar-badge {
+      position: absolute;
+      bottom: 2px; right: 2px;
+      z-index: 3;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 2.5px solid var(--left-bg);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,.3);
+      flex-shrink: 0;
+    }
+    .avatar-badge svg {
+      width: 100%; height: 100%;
+      display: block;
+    }
+
+    .identity {
+      text-align: center;
+      position: relative; z-index: 2;
+      animation: fadeUp .5s .3s both;
+    }
+    .name-first {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 11vw, 52px);
+      font-weight: 700;
+      line-height: .92;
+      letter-spacing: -.01em;
+      color: #ffffff;
+    }
+    .name-last {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 5.5vw, 26px);
+      font-weight: 300;
+      letter-spacing: .05em;
+      color: rgba(255,255,255,.75);
+      display: block;
+      margin-top: 3px;
+    }
+    .role {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold-pale);
+      background: rgba(184,131,42,.18);
+      border: 1px solid rgba(184,131,42,.35);
+      border-radius: 40px;
+      padding: 5px 14px;
+    }
+    .role-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      animation: blink 2.2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100%{ opacity:1; }
+      50%    { opacity:.25; }
+    }
+
+    .card-right {
+      padding: 36px 28px 32px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      animation: fadeUp .5s .4s both;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+    }
+    .divider-gem {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: .1em;
+    }
+
+    .bio {
+      font-size: 14.5px;
+      line-height: 1.78;
+      color: var(--text-soft);
+      font-weight: 300;
+      text-align: center;
+      animation: fadeUp .5s .45s both;
+    }
+    .bio strong { color: var(--navy); font-weight: 600; }
+
+    .ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      animation: fadeUp .5s .55s both;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .03em;
+      border-radius: var(--btn-radius);
+      padding: 15px 26px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+    }
+    .btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.08);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: scale(.97); }
+
+    .btn-icon {
+      width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .btn-icon svg { width: 100%; height: 100%; }
+
+    .btn-wa {
+      background: linear-gradient(135deg, #1a8a3e 0%, #25a244 100%);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(37,162,68,.30);
+    }
+    .btn-wa:hover { box-shadow: 0 10px 32px rgba(37,162,68,.45); }
+
+    .btn-mail {
+      background: var(--white);
+      color: var(--navy);
+      border: 1.5px solid rgba(13,31,60,.15);
+      box-shadow: 0 2px 12px rgba(13,31,60,.08);
+    }
+    .btn-mail:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 28px rgba(184,131,42,.18);
+      color: var(--gold);
+    }
+
+    .btn-li {
+      background: linear-gradient(135deg, #0a66c2 0%, #0d7ade 100%);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(10,102,194,.28);
+    }
+    .btn-li:hover { box-shadow: 0 10px 32px rgba(10,102,194,.45); }
+
+    .card-footer {
+      text-align: center;
+      font-size: 10.5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      animation: fadeUp .5s .65s both;
+    }
+    .card-footer a {
+      color: var(--gold);
+      text-decoration: none;
+      opacity: .8;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(12px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    @media (min-width: 768px) {
+      .page { padding: 40px 32px; }
+
+      .card {
+        max-width: 880px;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        align-items: stretch;
+        /* remove the wave cutout on desktop */
+      }
+      .card-left::after { display: none; }
+      .card-left {
+        padding: 52px 40px;
+        justify-content: center;
+        border-radius: var(--radius) 0 0 var(--radius);
+      }
+
+      .brand { align-self: flex-end; margin-bottom: 28px; }
+
+      .avatar-ring { width: 148px; height: 148px; }
+
+      .name-first { font-size: 54px; }
+      .name-last  { font-size: 28px; }
+
+      .card-right {
+        padding: 52px 48px;
+        border-radius: 0 var(--radius) var(--radius) 0;
+        justify-content: center;
+      }
+
+      .card-footer { text-align: left; }
+    }
+
+    @media (min-width: 1100px) {
+      .card { max-width: 980px; }
+      .card-left  { padding: 60px 48px; }
+      .card-right { padding: 60px 56px; }
+      .avatar-ring { width: 162px; height: 162px; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg">
+  <div class="bg-grain"></div>
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
+</div>
+
+<main class="page">
+  <article class="card">
+    <div class="card-left">
+      <div class="brand">
+        <div class="brand-pill">
+          <img
+            src="./assets/LOGO_COLOR_LEGAL_TALENT.png"
+            alt="Legal Talent"
+            class="img-logo"
+          />
+        </div>
+      </div>
+
+      <div class="avatar-wrap">
+        <div class="avatar-ring">
+          <img
+            class="avatar-img"
+            src="./assets/Alberto.jpg"
+            alt="Alberto Candelario Torres"
+          />
+          <div class="avatar-badge" title="Colombia">
+            <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0"  width="30" height="15" fill="#FCD116"/>
+              <rect x="0" y="15" width="30" height="7.5" fill="#003087"/>
+              <rect x="0" y="22.5" width="30" height="7.5" fill="#CE1126"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="identity">
+        <span class="name-first">Alberto</span>
+        <span class="name-last">Candelario Torres</span>
+        <div class="role">
+          <span class="role-dot"></span>
+          Reclutador Senior &nbsp;/&nbsp; Headhunter
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-right">
+      <div class="divider">
+        <span class="divider-gem">◆</span>
+      </div>
+
+      <p class="bio">
+        Me dedico a <strong>conectar personas</strong> con experiencia y disciplina laboral
+        a <strong>empresas de alto valor</strong> y reconocimiento en
+        <strong>Colombia y Latinoamérica</strong>.
+      </p>
+
+      <div class="ctas">
+
+        <a class="btn btn-wa"
+           href="https://wa.link/dn39m1"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Contactar por WhatsApp">
+          <span class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.539 4.062 1.481 5.773L0 24l6.395-1.459A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.023-1.384l-.36-.214-3.797.996 1.013-3.695-.234-.379A9.794 9.794 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+          </span>
+          Contacto por WhatsApp
+        </a>
+
+        <a class="btn btn-mail"
+           href="mailto:alberto.candelario@legaltalent.com"
+           aria-label="Enviar correo">
+          <span class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="20" height="16" rx="3"/>
+              <polyline points="2,4 12,13 22,4"/>
+            </svg>
+          </span>
+          Enviar Correo
+        </a>
+
+        <a class="btn btn-li"
+           href="http://linkedin.com/in/alberto-mario-candelario-torres-938950106"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Ver perfil en LinkedIn">
+          <span class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </span>
+          Ver perfil en LinkedIn
+        </a>
+
+      </div>
+
+      <footer class="card-footer">
+        <a href="#">Legal Talent</a>
+      </footer>
+
+    </div>
+
+  </article>
+</main>
+
+</body>
+</html>
